@@ -6,6 +6,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     public static final Random RANDOM = new Random();
     private Button rollDices;
     private ImageView imageView1, imageView2;
+    private TextView scoreTV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         rollDices = (Button) findViewById(R.id.rollDices);
         imageView1 = (ImageView) findViewById(R.id.imageView1);
         imageView2 = (ImageView) findViewById(R.id.imageView2);
+        scoreTV = (TextView) findViewById(R.id.score);
 
         rollDices.setOnClickListener(v -> {
             Random random = new Random();
@@ -34,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
 
             imageView1.setImageResource(dice[num1]);
             imageView2.setImageResource(dice[num2]);
+
+            scoreTV.setText("Score: " + (num1+num2));
         });
     }
 }
