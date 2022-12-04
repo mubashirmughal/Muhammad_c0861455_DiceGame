@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     public static final Random RANDOM = new Random();
     private Button rollDices;
     private ImageView imageView1, imageView2;
-    private TextView scoreTV;
+    private TextView Player1Score, Player2Score;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +27,8 @@ public class MainActivity extends AppCompatActivity {
         rollDices = (Button) findViewById(R.id.rollDices);
         imageView1 = (ImageView) findViewById(R.id.imageView1);
         imageView2 = (ImageView) findViewById(R.id.imageView2);
-        scoreTV = (TextView) findViewById(R.id.score);
+        Player1Score = (TextView) findViewById(R.id.score1);
+        Player2Score = (TextView) findViewById(R.id.score2);
 
         rollDices.setOnClickListener(v -> {
             Random random = new Random();
@@ -38,7 +39,8 @@ public class MainActivity extends AppCompatActivity {
             imageView1.setImageResource(dice[num1]);
             imageView2.setImageResource(dice[num2]);
 
-            scoreTV.setText("Score: " + (num1+num2));
+            Player1Score.setText("Player 1 Score: " + num1);
+            Player2Score.setText("Player 2 Score: " + num2);
         });
     }
 }
